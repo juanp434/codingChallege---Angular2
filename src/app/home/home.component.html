@@ -1,0 +1,35 @@
+<div class="container">
+  <div *ngFor="let item of cards | search:term" class="item">
+    <img src="{{item.primaryMediaUrl}}" alt="" height="110px">
+    <div class="col-md-12 no-gutters">
+        <span class="">{{item.cardTitle}}</span>
+    </div>
+    
+    <div class="row price-font no-gutters">
+      <div class="col-md-6">
+          ${{item.listOfPlans[0].price.amount}}/Month
+      </div>
+      <div class="col-md-6 text-right">
+          {{item.currentWorkflow}}
+      </div> 
+    </div>
+    <div class="row no-gutters subscribe">
+      <span class="color-bar" [style.width]="((item.subscribers*100)/item.availableQuantity)+'%'"></span>
+    </div>
+
+    <div class="item-footer row no-gutters">
+      <div class="col-md-4">
+          <i class="fa fa-database" aria-hidden="true"></i> ${{item.totalRevenue}}
+      </div>
+      <div class="col-md-4">
+          <i class="fa fa-users" aria-hidden="true"></i> {{item.subscribers}}
+      </div>
+      <div class="col-md-4">
+          <i class="fa fa-eye" aria-hidden="true"></i> {{item.views}}
+      </div>
+
+    </div>
+    
+  </div>
+
+</div>
