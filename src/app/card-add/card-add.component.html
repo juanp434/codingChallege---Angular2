@@ -1,0 +1,115 @@
+<div class="container">
+    
+    <form action="" class="edit-form" (submit)="addForm()">
+    
+      <div class="form-group row">
+        <label for="cardTitle" class="col-sm-2 col-form-label">Title</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="cardTitle">
+        </div>
+      </div>
+    
+      <div class="form-group row">
+          <label for="cardTitle" class="col-sm-2 col-form-label">Description</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+      </div>
+      
+      <div class="form-group row">
+          <label for="cardStartDate" class="col-sm-2 col-form-label">Start</label>
+          <div class="col-sm-4">
+              <input type="date" class="form-control" name="cardStartDate" >
+          </div>
+    
+          <label for="cardEndDate" class="col-sm-2 col-form-label">End</label>
+          <div class="col-sm-4">
+              <input type="date" class="form-control" name="cardEndDate" >
+          </div>
+      </div>
+      <div class="form-group row">
+          <label for="availableQuantity" class="col-sm-2 col-form-label">Available:</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" name="availableQuantity" >
+          </div>
+      </div>
+      <div class="form-group row">
+          <label for="currentWorkflow" class="col-sm-2 col-form-label">State:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="currentWorkflow" >
+          </div>
+      </div>
+    
+      <div class="form-group">
+        <h4>Plans</h4>
+        <ul>
+          <li class="form-group row">
+            <div class="form-group row">
+              <label for="" class="col-sm-2 col-form-label">Plan 1</label>
+              <label for="currencySymbol" class="col-sm-1 col-form-label">Simbol:</label>
+              <div class="col-sm-1">
+                <input type="text" class="form-control" name="currencySymbol" >
+              </div>
+              <label for="amount" class="col-sm-1 col-form-label">Price:</label>
+              <div class="col-sm-2">
+                <input type="number" class="form-control" name="amount" >
+              </div>
+              <label for="currency" class="col-sm-1 col-form-label">Coin:</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="currency">
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    
+      <div class="form-group">
+        <h4>Locations</h4>
+        <ul>
+            <li class="form-group row">
+              <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">Location 1</label>
+                <label for="Area" class="col-sm-1 col-form-label">Area:</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" name="Area">
+                </div>
+                <label for="amount" class="col-sm-1 col-form-label">City:</label>
+                <div class="col-sm-2">
+                  <input type="number" class="form-control" name="amount">
+                </div>
+                <label for="currency" class="col-sm-1 col-form-label">Country:</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" name="currency">
+                </div>
+              </div>
+            </li>
+          </ul>
+      </div>
+    
+      <div class="form-group row">
+          <label for="totalRevenue" class="col-sm-2 col-form-label">Total Revenue:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="totalRevenue">
+          </div>
+      </div>
+      <div class="form-group row">
+          <label for="subscribers" class="col-sm-2 col-form-label">subcribers:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="subscribers">
+          </div>
+      </div>
+      <div class="form-group row">
+          <label for="views" class="col-sm-2 col-form-label">views:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="views">
+          </div>
+      </div>
+    
+      <div class="row justify-content-center">
+        <button type="submit" class="btn btn-outline-success mr-3">Save</button>
+        <a [routerLink]="['/']" class="btn btn-outline-danger">Go Back</a>
+      </div>
+    
+  </form>
+</div>
+    

@@ -9,7 +9,7 @@ export class FilterPipe implements PipeTransform {
     if(term === undefined) return items;
     
     return items.filter(function(items){
-      return items.title.toLowerCase().includes(term.toLowerCase());
+      return items.cardTitle.toLowerCase().includes(term.toLowerCase());
     })
   }
 

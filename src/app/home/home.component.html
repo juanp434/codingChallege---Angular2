@@ -1,6 +1,15 @@
 <div class="container">
-  <div *ngFor="let item of cards | search:term" class="item">
-    <img src="{{item.primaryMediaUrl}}" alt="" height="110px">
+    <div class="row col-md-12 search-padding">
+        <div class="col-md-4 ml-auto">
+            <form class="form-inline my-2 my-md-0">
+                <input class="form-control search-box" type="text" placeholder="Search" aria-label="Search" name="term" [(ngModel)]="term">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </form>
+        </div>
+    </div>
+    
+  <div *ngFor="let item of cards | search:term | paginate: { itemsPerPage: 12, currentPage: p }" class="item">
+    <a [routerLink]="['/card/edit/'+item.$key]"><img src="{{item.primaryMediaUrl}}" alt="" height="110px"></a>
     <div class="col-md-12 no-gutters">
         <span class="">{{item.cardTitle}}</span>
     </div>
@@ -31,5 +40,8 @@
     </div>
     
   </div>
-
+  
+</div>
+<div class="container">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

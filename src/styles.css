@@ -34,3 +34,11 @@
     height: 25px;
     margin-right: 5px;
 }
+.search-padding{
+    padding-top: 8px;
+}
+
+.edit-form{
+    width: 80%;
+    padding: 10px;
+}

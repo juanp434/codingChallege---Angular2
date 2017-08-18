@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CampaignsService } from '../campaigns.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-campaign',
@@ -13,15 +13,18 @@ export class CampaignComponent implements OnInit {
   constructor(
     private service : CampaignsService,
     private route: ActivatedRoute,
-  ) { }
+    private router: Router
+  ) {
+      router.events.subscribe((val) => {
+        this.ngOnInit(); 
+      });
+   }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     
     this.service.getCampaign(this.id).subscribe(data => {
       this.campaign = data;
-      console.log(this.campaign);
-      
     });
   }
 

@@ -1,0 +1,120 @@
+<div class="container">
+
+<form action="" class="edit-form" (submit)="editForm()">
+
+  <div class="form-group text-center">
+      <img src="{{primaryMediaUrl}}" alt="" height="180">
+  </div>
+
+  <div class="form-group row">
+    <label for="cardTitle" class="col-sm-2 col-form-label">Title</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="cardTitle" value="{{cardTitle}}" [(ngModel)]="cardTitle">
+    </div>
+  </div>
+
+  <div class="form-group row">
+      <label for="cardTitle" class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="cardDescription" [(ngModel)]="cardDescription">{{cardDescription}}</textarea>
+      </div>
+  </div>
+  
+  <div class="form-group row">
+      <label for="cardStartDate" class="col-sm-2 col-form-label">Start</label>
+      <div class="col-sm-4">
+          <input type="date" class="form-control" name="cardStartDate" [(ngModel)]="cardStartDate" value="{{cardStartDate | date:'yyyy-MM-dd'}}">
+      </div>
+
+      <label for="cardEndDate" class="col-sm-2 col-form-label">End</label>
+      <div class="col-sm-4">
+          <input type="date" class="form-control" name="cardEndDate" [(ngModel)]="cardEndDate" value="{{cardEndDate | date:'yyyy-MM-dd'}}">
+      </div>
+  </div>
+  <div class="form-group row">
+      <label for="availableQuantity" class="col-sm-2 col-form-label">Available:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" name="availableQuantity" [(ngModel)]="availableQuantity" value="{{availableQuantity}}">
+      </div>
+  </div>
+  <div class="form-group row">
+      <label for="currentWorkflow" class="col-sm-2 col-form-label">State:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="currentWorkflow" [(ngModel)]="currentWorkflow" value="{{currentWorkflow}}">
+      </div>
+  </div>
+
+  <div class="form-group">
+    <h4>Plans</h4>
+    <ul>
+      <li *ngFor="let plan of listOfPlans; let i = index" class="form-group row">
+        <div class="form-group row">
+          <label for="" class="col-sm-2 col-form-label">Plan {{i+1}}</label>
+          <label for="currencySymbol" class="col-sm-1 col-form-label">Simbol:</label>
+          <div class="col-sm-1">
+            <input type="text" class="form-control" name="currencySymbol" value="{{plan.price.currencySymbol}}">
+          </div>
+          <label for="amount" class="col-sm-1 col-form-label">Price:</label>
+          <div class="col-sm-2">
+            <input type="number" class="form-control" name="amount" value="{{plan.price.amount}}">
+          </div>
+          <label for="currency" class="col-sm-1 col-form-label">Coin:</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" name="currency" value="{{plan.price.currency}}">
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="form-group">
+    <h4>Locations</h4>
+    <ul>
+        <li *ngFor="let location of locations; let i = index" class="form-group row">
+          <div class="form-group row">
+            <label for="" class="col-sm-2 col-form-label">Location {{i+1}}</label>
+            <label for="Area" class="col-sm-1 col-form-label">Area:</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" name="Area" value="{{location.area}}">
+            </div>
+            <label for="amount" class="col-sm-1 col-form-label">City:</label>
+            <div class="col-sm-2">
+              <input type="number" class="form-control" name="amount" value="{{location.city}}">
+            </div>
+            <label for="currency" class="col-sm-1 col-form-label">Country:</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" name="currency" value="{{location.country}}">
+            </div>
+          </div>
+        </li>
+      </ul>
+  </div>
+
+  <div class="form-group row">
+      <label for="totalRevenue" class="col-sm-2 col-form-label">Total Revenue:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="totalRevenue" [(ngModel)]="totalRevenue" value="{{totalRevenue}}">
+      </div>
+  </div>
+  <div class="form-group row">
+      <label for="subscribers" class="col-sm-2 col-form-label">subcribers:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="subscribers" [(ngModel)]="subscribers" value="{{subscribers}}">
+      </div>
+  </div>
+  <div class="form-group row">
+      <label for="views" class="col-sm-2 col-form-label">views:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="views" [(ngModel)]="views" value="{{views}}">
+      </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <button type="submit" class="btn btn-outline-success mr-3">Save</button>
+    <a [routerLink]="['/']" class="btn btn-outline-danger">Go Back</a>
+  </div>
+
+</form>
+
+
+</div>

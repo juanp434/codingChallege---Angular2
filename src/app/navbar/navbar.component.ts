@@ -1,18 +1,17 @@
-import { Component, OnInit, EventEmitter, OnChanges } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { CampaignsService } from '../campaigns.service';
-import { Search } from '../search';
+
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit, OnChanges {
+export class NavbarComponent implements OnInit {
   campaigns:any;
-  term;
+  
   constructor(
-    private service : CampaignsService,
-    private search: Search
+    private service : CampaignsService
   ) { 
   }
 
@@ -22,9 +21,5 @@ export class NavbarComponent implements OnInit, OnChanges {
     });
   }
 
-  ngOnChanges(){
-    this.search.setTerm(this.term);
-  }
-  
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CampaignsService} from '../campaigns.service';
-import { Search } from '../search';
+import {PaginatePipe, PaginationControlsComponent, PaginationService} from 'ng2-pagination';
 
 @Component({
   selector: 'app-home',
@@ -15,16 +15,14 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private service : CampaignsService,
-    private search: Search
+    
   ) {
-    this.term = search.getTerm();
    }
 
   ngOnInit() {
     this.service.getCards().subscribe(data => {
       this.cards = data;
     });
-
   }
 
 }
