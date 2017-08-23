@@ -8,16 +8,28 @@ export interface ConfirmModel {
   title:string;
   message:string;
 }
+export interface filter{
+  status: string;
+}
 @Component({
   selector: 'app-card-edit',
   templateUrl: './card-edit.component.html',
   styleUrls: ['./card-edit.component.css']
 })
+
 export class CardEditComponent implements OnInit {
   card:any;
   id:any;
+  filters: filter[] = [];
+  campaigns:any;
+  newcurrencySymbol: String;
+  newamount: String;
+  newcurrency: String;
+  newcity:String;
+  newcountry: String;
 
   cardTitle:any;
+  campaignId:any;
   availableQuantity:any;
   cardDescription:any;
   cardEndDate:any;
@@ -56,6 +68,15 @@ export class CardEditComponent implements OnInit {
       this.views = snapshot.views;
       this.listOfPlans = snapshot.listOfPlans;
       this.locations = snapshot.locations;
+      this.campaignId = snapshot.campaignId;
+    });
+
+    this.service.getFilters().subscribe( data =>{
+      this.filters = data;
+    });
+
+    this.service.getCampaigns().subscribe( data =>{
+      this.campaigns = data;
     });
     
   }
@@ -63,6 +84,7 @@ export class CardEditComponent implements OnInit {
   editForm(){
     this.card = {
       cardTitle: this.cardTitle,
+      campaignId: this.campaignId,
       primaryMediaUrl: this.primaryMediaUrl,
       availableQuantity: this.availableQuantity,
       cardDescription: this.cardDescription,
@@ -90,6 +112,38 @@ export class CardEditComponent implements OnInit {
             });
       })
       .catch(err => console.log(err, 'You do not have access!'));
+  }
+
+  addPlan() {
+    if (this.newamount && this.newamount && this.newcurrency) {
+
+        let entry = {
+            price: {
+              'currencySymbol': this.newcurrencySymbol,
+              'amount': this.newamount,
+              'currency': this.newcurrency
+            }
+        };
+
+        this.listOfPlans.push(entry);
+        this.newcurrencySymbol = "";
+        this.newamount = "";
+        this.newcurrency = "";
+    }
+  }
+
+  addLocation(){
+    if (this.newcity && this.newcountry) {
+      
+      let entry = {
+          'city': this.newcity,
+          'country': this.newcountry
+      };
+
+      this.locations.push(entry);
+      this.newcity = "";
+      this.newcountry = "";
+    }
   }
 
 }

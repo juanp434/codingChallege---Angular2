@@ -42,3 +42,6 @@
     width: 80%;
     padding: 10px;
 }
+.ng2-pagination{
+    cursor: pointer;
+}
